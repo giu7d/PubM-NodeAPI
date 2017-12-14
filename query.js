@@ -19,11 +19,7 @@ const client = pgp(connectionString);
 function getAll(req, res, next) {
     client.any('SELECT * FROM prefeitura')
         .then(function (data) {
-            res.status(200)
-                .json({
-                    status: 'success',
-                    data: data
-                });
+            res.status(200).json(data);
         })
         .catch(function (err) {
             return next(err);
